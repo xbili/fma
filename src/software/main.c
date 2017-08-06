@@ -18,8 +18,8 @@ int main() {
 
 	void *virtual_base;
 	int fd;
-	int8_t *in_1, *in_2;
-	int16_t *out_1;
+	int8_t *a0, *a1, *a2, *a3, *b0, *b1, *b2, *b3;
+	int32_t *out_1;
 
 	// map the address space for the LED registers into user space so we can interact with them.
 	// we'll actually map in the entire CSR span of the HPS since we want to access various registers within that span
@@ -37,26 +37,31 @@ int main() {
 		return 1;
 	}
 
-	in_1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + IN_1_BASE) & (unsigned long)(HW_REGS_MASK));
-	in_2 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + IN_2_BASE) & (unsigned long)(HW_REGS_MASK));
-	out_1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + OUT_1_BASE) & (unsigned long)(HW_REGS_MASK));
+	a0 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_0_BASE) & (unsigned long)(HW_REGS_MASK));
+	a1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_1_BASE) & (unsigned long)(HW_REGS_MASK));
+	a2 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_2_BASE) & (unsigned long)(HW_REGS_MASK));
+	a3 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_3_BASE) & (unsigned long)(HW_REGS_MASK));
 
-	int i, j;
-	for (i = -128; i < 128; i++) {
-		for (j = -128; j < 128; j++) {
-			printf("i: %d\n", i);
-			printf("j: %d\n", j);
+	b0 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_0_BASE) & (unsigned long)(HW_REGS_MASK));
+	b1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_1_BASE) & (unsigned long)(HW_REGS_MASK));
+	b2 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_2_BASE) & (unsigned long)(HW_REGS_MASK));
+	b3 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_3_BASE) & (unsigned long)(HW_REGS_MASK));
 
-			*in_1 = i;
-			*in_2 = j;
+	out_1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + OUT_0_BASE) & (unsigned long)(HW_REGS_MASK));
 
-			printf("Result: %d\n", *out_1);
-			printf("Expected: %d\n", i * j);
+	// Test case
+	*a0 = -8;
+	*a1 = -8;
+	*a2 = -8;
+	*a3 = -8;
 
-			assert(*out_1 == i * j);
-		}
-	}
+	*b0 = -8;
+	*b1 = -8;
+	*b2 = -8;
+	*b3 = -8;
 
+	printf("%d\n", *out_1);
+	assert(*out_1 == 256);
 
 	if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
 		printf("ERROR: munmap() failed...\n");

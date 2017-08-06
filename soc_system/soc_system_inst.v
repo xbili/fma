@@ -1,4 +1,20 @@
 	soc_system u0 (
+		.a_0_external_connection_export        (<connected-to-a_0_external_connection_export>),        //   a_0_external_connection.export
+		.a_1_external_connection_export        (<connected-to-a_1_external_connection_export>),        //   a_1_external_connection.export
+		.a_2_external_connection_export        (<connected-to-a_2_external_connection_export>),        //   a_2_external_connection.export
+		.a_3_external_connection_export        (<connected-to-a_3_external_connection_export>),        //   a_3_external_connection.export
+		.a_4_external_connection_export        (<connected-to-a_4_external_connection_export>),        //   a_4_external_connection.export
+		.a_5_external_connection_export        (<connected-to-a_5_external_connection_export>),        //   a_5_external_connection.export
+		.a_6_external_connection_export        (<connected-to-a_6_external_connection_export>),        //   a_6_external_connection.export
+		.a_7_external_connection_export        (<connected-to-a_7_external_connection_export>),        //   a_7_external_connection.export
+		.b_0_external_connection_export        (<connected-to-b_0_external_connection_export>),        //   b_0_external_connection.export
+		.b_1_external_connection_export        (<connected-to-b_1_external_connection_export>),        //   b_1_external_connection.export
+		.b_2_external_connection_export        (<connected-to-b_2_external_connection_export>),        //   b_2_external_connection.export
+		.b_3_external_connection_export        (<connected-to-b_3_external_connection_export>),        //   b_3_external_connection.export
+		.b_4_external_connection_export        (<connected-to-b_4_external_connection_export>),        //   b_4_external_connection.export
+		.b_5_external_connection_export        (<connected-to-b_5_external_connection_export>),        //   b_5_external_connection.export
+		.b_6_external_connection_export        (<connected-to-b_6_external_connection_export>),        //   b_6_external_connection.export
+		.b_7_external_connection_export        (<connected-to-b_7_external_connection_export>),        //   b_7_external_connection.export
 		.clk_clk                               (<connected-to-clk_clk>),                               //                       clk.clk
 		.hps_0_f2h_cold_reset_req_reset_n      (<connected-to-hps_0_f2h_cold_reset_req_reset_n>),      //  hps_0_f2h_cold_reset_req.reset_n
 		.hps_0_f2h_debug_reset_req_reset_n     (<connected-to-hps_0_f2h_debug_reset_req_reset_n>),     // hps_0_f2h_debug_reset_req.reset_n
@@ -76,9 +92,7 @@
 		.memory_mem_odt                        (<connected-to-memory_mem_odt>),                        //                          .mem_odt
 		.memory_mem_dm                         (<connected-to-memory_mem_dm>),                         //                          .mem_dm
 		.memory_oct_rzqin                      (<connected-to-memory_oct_rzqin>),                      //                          .oct_rzqin
-		.reset_reset_n                         (<connected-to-reset_reset_n>),                         //                     reset.reset_n
-		.in_1_external_connection_export       (<connected-to-in_1_external_connection_export>),       //  in_1_external_connection.export
-		.in_2_external_connection_export       (<connected-to-in_2_external_connection_export>),       //  in_2_external_connection.export
-		.out_1_external_connection_export      (<connected-to-out_1_external_connection_export>)       // out_1_external_connection.export
+		.out_0_external_connection_export      (<connected-to-out_0_external_connection_export>),      // out_0_external_connection.export
+		.reset_reset_n                         (<connected-to-reset_reset_n>)                          //                     reset.reset_n
 	);
 

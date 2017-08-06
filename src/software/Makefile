@@ -1,5 +1,5 @@
 #
-TARGET = fused_multiply_add
+TARGET = fma
 
 #
 ALT_DEVICE_FAMILY ?= soc_cv_av

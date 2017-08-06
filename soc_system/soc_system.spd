@@ -476,9 +476,9 @@
    type="VERILOG"
    library="sysid_qsys" />
  <file
-   path="simulation/submodules/soc_system_out_1.v"
+   path="simulation/submodules/soc_system_out_0.v"
    type="VERILOG"
-   library="out_1" />
+   library="out_0" />
  <file
    path="simulation/submodules/soc_system_onchip_memory2_0.hex"
    type="HEX"
@@ -496,10 +496,6 @@
    type="VERILOG"
    library="intr_capturer_0" />
  <file
-   path="simulation/submodules/soc_system_in_1.v"
-   type="VERILOG"
-   library="in_1" />
- <file
    path="simulation/submodules/soc_system_hps_0.v"
    type="VERILOG"
    library="hps_0" />
@@ -507,6 +503,10 @@
    path="simulation/submodules/soc_system_fpga_only_master.v"
    type="VERILOG"
    library="fpga_only_master" />
+ <file
+   path="simulation/submodules/soc_system_a_0.v"
+   type="VERILOG"
+   library="a_0" />
  <file path="simulation/soc_system.v" type="VERILOG" />
  <topLevel name="soc_system" />
  <deviceFamily name="cyclonev" />

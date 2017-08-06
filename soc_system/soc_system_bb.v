@@ -1,5 +1,21 @@
 
 module soc_system (
+	a_0_external_connection_export,
+	a_1_external_connection_export,
+	a_2_external_connection_export,
+	a_3_external_connection_export,
+	a_4_external_connection_export,
+	a_5_external_connection_export,
+	a_6_external_connection_export,
+	a_7_external_connection_export,
+	b_0_external_connection_export,
+	b_1_external_connection_export,
+	b_2_external_connection_export,
+	b_3_external_connection_export,
+	b_4_external_connection_export,
+	b_5_external_connection_export,
+	b_6_external_connection_export,
+	b_7_external_connection_export,
 	clk_clk,
 	hps_0_f2h_cold_reset_req_reset_n,
 	hps_0_f2h_debug_reset_req_reset_n,
@@ -77,11 +93,25 @@ module soc_system (
 	memory_mem_odt,
 	memory_mem_dm,
 	memory_oct_rzqin,
-	reset_reset_n,
-	in_1_external_connection_export,
-	in_2_external_connection_export,
-	out_1_external_connection_export);	
+	out_0_external_connection_export,
+	reset_reset_n);	
 
+	output	[7:0]	a_0_external_connection_export;
+	output	[7:0]	a_1_external_connection_export;
+	output	[7:0]	a_2_external_connection_export;
+	output	[7:0]	a_3_external_connection_export;
+	output	[7:0]	a_4_external_connection_export;
+	output	[7:0]	a_5_external_connection_export;
+	output	[7:0]	a_6_external_connection_export;
+	output	[7:0]	a_7_external_connection_export;
+	output	[7:0]	b_0_external_connection_export;
+	output	[7:0]	b_1_external_connection_export;
+	output	[7:0]	b_2_external_connection_export;
+	output	[7:0]	b_3_external_connection_export;
+	output	[7:0]	b_4_external_connection_export;
+	output	[7:0]	b_5_external_connection_export;
+	output	[7:0]	b_6_external_connection_export;
+	output	[7:0]	b_7_external_connection_export;
 	input		clk_clk;
 	input		hps_0_f2h_cold_reset_req_reset_n;
 	input		hps_0_f2h_debug_reset_req_reset_n;
@@ -159,8 +189,6 @@ module soc_system (
 	output		memory_mem_odt;
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
+	input	[18:0]	out_0_external_connection_export;
 	input		reset_reset_n;
-	output	[7:0]	in_1_external_connection_export;
-	output	[7:0]	in_2_external_connection_export;
-	input	[15:0]	out_1_external_connection_export;
 endmodule
