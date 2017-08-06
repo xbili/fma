@@ -14,15 +14,13 @@
 #define HW_REGS_SPAN (0x04000000)
 #define HW_REGS_MASK (HW_REGS_SPAN - 1)
 
-int main() {
 
+int32_t fma_8x8(int8_t a[8], int8_t b[8]) {
 	void *virtual_base;
 	int fd;
-	int8_t *a0, *a1, *a2, *a3, *b0, *b1, *b2, *b3;
-	int32_t *out_1;
-
-	// map the address space for the LED registers into user space so we can interact with them.
-	// we'll actually map in the entire CSR span of the HPS since we want to access various registers within that span
+	int8_t *a0, *a1, *a2, *a3, *a4, *a5, *a6, *a7;
+	int8_t *b0, *b1, *b2, *b3, *b4, *b5, *b6, *b7;
+	int32_t *out_0;
 
 	if((fd = open( "/dev/mem", (O_RDWR | O_SYNC))) == -1) {
 		printf( "ERROR: could not open \"/dev/mem\"...\n" );
@@ -37,32 +35,40 @@ int main() {
 		return 1;
 	}
 
+	// Assign address for hardware inputs and output
 	a0 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_0_BASE) & (unsigned long)(HW_REGS_MASK));
 	a1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_1_BASE) & (unsigned long)(HW_REGS_MASK));
 	a2 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_2_BASE) & (unsigned long)(HW_REGS_MASK));
 	a3 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_3_BASE) & (unsigned long)(HW_REGS_MASK));
+	a4 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_4_BASE) & (unsigned long)(HW_REGS_MASK));
+	a5 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_5_BASE) & (unsigned long)(HW_REGS_MASK));
+	a6 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_6_BASE) & (unsigned long)(HW_REGS_MASK));
+	a7 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + A_7_BASE) & (unsigned long)(HW_REGS_MASK));
 
 	b0 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_0_BASE) & (unsigned long)(HW_REGS_MASK));
 	b1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_1_BASE) & (unsigned long)(HW_REGS_MASK));
 	b2 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_2_BASE) & (unsigned long)(HW_REGS_MASK));
 	b3 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_3_BASE) & (unsigned long)(HW_REGS_MASK));
+	b4 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_4_BASE) & (unsigned long)(HW_REGS_MASK));
+	b5 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_5_BASE) & (unsigned long)(HW_REGS_MASK));
+	b6 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_6_BASE) & (unsigned long)(HW_REGS_MASK));
+	b7 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + B_7_BASE) & (unsigned long)(HW_REGS_MASK));
 
-	out_1 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + OUT_0_BASE) & (unsigned long)(HW_REGS_MASK));
+	out_0 = virtual_base + ((unsigned long)(ALT_LWFPGASLVS_OFST + OUT_0_BASE) & (unsigned long)(HW_REGS_MASK));
 
-	// Test case
-	*a0 = -8;
-	*a1 = -8;
-	*a2 = -8;
-	*a3 = -8;
+	int8_t *hw_input_a[8] = { a0, a1, a2, a3, a4, a5, a6, a7 };
+	int8_t *hw_input_b[8] = { b0, b1, b2, b3, b4, b5, b6, b7 };
 
-	*b0 = -8;
-	*b1 = -8;
-	*b2 = -8;
-	*b3 = -8;
+	// Assign input vectors to hardware inputs
+	int i;
+	for (i = 0; i < 8; ++i) {
+		*hw_input_a[i] = a[i];
+		*hw_input_b[i] = b[i];
+	}
 
-	printf("%d\n", *out_1);
-	assert(*out_1 == 256);
+	int result = *out_0;
 
+	// Close our hardware mmap
 	if (munmap(virtual_base, HW_REGS_SPAN) != 0) {
 		printf("ERROR: munmap() failed...\n");
 		close(fd);
@@ -70,6 +76,63 @@ int main() {
 	}
 
 	close(fd);
+
+	return result;
+}
+
+
+int32_t cpu_fma_8x8(int8_t a[8], int8_t b[8]) {
+	int32_t result = 0;
+	int i;
+	for (i = 0; i < 8; i++) {
+		result += a[i] * b[i];
+	}
+
+	return result;
+}
+
+
+int main() {
+	// Loops counters
+	int i;
+
+	// Temp buffer to store value
+	int value;
+
+	// Read user inputs
+	int8_t a[8], b[8];
+	int count = 8;
+
+	printf("\nEnter elements of vector A:\n");
+	for (i = 0; i < count; ++i) {
+		printf("%2d> ", i+1);
+		scanf("%d", &value);
+		a[i] = value;
+	}
+
+	printf("\nEnter elements of vector B:\n");
+	for (i = 0; i < count; ++i) {
+		printf("%2d> ", i+1);
+		scanf("%d", &value);
+		b[i] = value;
+	}
+
+	int32_t result = fma_8x8(a, b);
+	int32_t expected = cpu_fma_8x8(a, b);
+
+	// Print inputs
+	printf("Calculating:\n");
+	for (i = 0; i < 8; ++i) {
+		printf("%d * %d", a[i], b[i]);
+		if (i < 7) {
+			printf(" + ");
+		}
+	}
+	printf("\n");
+	printf("Expected: %d\n", expected);
+	printf("Actual: %d\n", result);
+
+	assert(expected == result);
 
 	return 0;
 }

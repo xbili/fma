@@ -66,7 +66,7 @@
 #define A_0_BIT_CLEARING_EDGE_REGISTER 0
 #define A_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define A_0_CAPTURE 0
-#define A_0_DATA_WIDTH 4
+#define A_0_DATA_WIDTH 8
 #define A_0_DO_TEST_BENCH_WIRING 0
 #define A_0_DRIVEN_SIM_VALUE 0
 #define A_0_EDGE_TYPE NONE
@@ -75,7 +75,7 @@
 #define A_0_HAS_OUT 1
 #define A_0_HAS_TRI 0
 #define A_0_IRQ_TYPE NONE
-#define A_0_RESET_VALUE 4
+#define A_0_RESET_VALUE 255
 
 /*
  * Macros for device 'a_1', class 'altera_avalon_pio'
@@ -90,7 +90,7 @@
 #define A_1_BIT_CLEARING_EDGE_REGISTER 0
 #define A_1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define A_1_CAPTURE 0
-#define A_1_DATA_WIDTH 4
+#define A_1_DATA_WIDTH 8
 #define A_1_DO_TEST_BENCH_WIRING 0
 #define A_1_DRIVEN_SIM_VALUE 0
 #define A_1_EDGE_TYPE NONE
@@ -99,7 +99,7 @@
 #define A_1_HAS_OUT 1
 #define A_1_HAS_TRI 0
 #define A_1_IRQ_TYPE NONE
-#define A_1_RESET_VALUE 4
+#define A_1_RESET_VALUE 255
 
 /*
  * Macros for device 'a_2', class 'altera_avalon_pio'
@@ -114,7 +114,7 @@
 #define A_2_BIT_CLEARING_EDGE_REGISTER 0
 #define A_2_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define A_2_CAPTURE 0
-#define A_2_DATA_WIDTH 4
+#define A_2_DATA_WIDTH 8
 #define A_2_DO_TEST_BENCH_WIRING 0
 #define A_2_DRIVEN_SIM_VALUE 0
 #define A_2_EDGE_TYPE NONE
@@ -123,7 +123,7 @@
 #define A_2_HAS_OUT 1
 #define A_2_HAS_TRI 0
 #define A_2_IRQ_TYPE NONE
-#define A_2_RESET_VALUE 4
+#define A_2_RESET_VALUE 255
 
 /*
  * Macros for device 'a_3', class 'altera_avalon_pio'
@@ -138,7 +138,7 @@
 #define A_3_BIT_CLEARING_EDGE_REGISTER 0
 #define A_3_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define A_3_CAPTURE 0
-#define A_3_DATA_WIDTH 4
+#define A_3_DATA_WIDTH 8
 #define A_3_DO_TEST_BENCH_WIRING 0
 #define A_3_DRIVEN_SIM_VALUE 0
 #define A_3_EDGE_TYPE NONE
@@ -147,7 +147,7 @@
 #define A_3_HAS_OUT 1
 #define A_3_HAS_TRI 0
 #define A_3_IRQ_TYPE NONE
-#define A_3_RESET_VALUE 4
+#define A_3_RESET_VALUE 255
 
 /*
  * Macros for device 'b_0', class 'altera_avalon_pio'
@@ -162,7 +162,7 @@
 #define B_0_BIT_CLEARING_EDGE_REGISTER 0
 #define B_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define B_0_CAPTURE 0
-#define B_0_DATA_WIDTH 4
+#define B_0_DATA_WIDTH 8
 #define B_0_DO_TEST_BENCH_WIRING 0
 #define B_0_DRIVEN_SIM_VALUE 0
 #define B_0_EDGE_TYPE NONE
@@ -171,7 +171,7 @@
 #define B_0_HAS_OUT 1
 #define B_0_HAS_TRI 0
 #define B_0_IRQ_TYPE NONE
-#define B_0_RESET_VALUE 4
+#define B_0_RESET_VALUE 255
 
 /*
  * Macros for device 'b_1', class 'altera_avalon_pio'
@@ -186,7 +186,7 @@
 #define B_1_BIT_CLEARING_EDGE_REGISTER 0
 #define B_1_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define B_1_CAPTURE 0
-#define B_1_DATA_WIDTH 4
+#define B_1_DATA_WIDTH 8
 #define B_1_DO_TEST_BENCH_WIRING 0
 #define B_1_DRIVEN_SIM_VALUE 0
 #define B_1_EDGE_TYPE NONE
@@ -195,7 +195,7 @@
 #define B_1_HAS_OUT 1
 #define B_1_HAS_TRI 0
 #define B_1_IRQ_TYPE NONE
-#define B_1_RESET_VALUE 4
+#define B_1_RESET_VALUE 255
 
 /*
  * Macros for device 'b_2', class 'altera_avalon_pio'
@@ -210,7 +210,7 @@
 #define B_2_BIT_CLEARING_EDGE_REGISTER 0
 #define B_2_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define B_2_CAPTURE 0
-#define B_2_DATA_WIDTH 4
+#define B_2_DATA_WIDTH 8
 #define B_2_DO_TEST_BENCH_WIRING 0
 #define B_2_DRIVEN_SIM_VALUE 0
 #define B_2_EDGE_TYPE NONE
@@ -219,7 +219,7 @@
 #define B_2_HAS_OUT 1
 #define B_2_HAS_TRI 0
 #define B_2_IRQ_TYPE NONE
-#define B_2_RESET_VALUE 4
+#define B_2_RESET_VALUE 255
 
 /*
  * Macros for device 'b_3', class 'altera_avalon_pio'
@@ -234,7 +234,7 @@
 #define B_3_BIT_CLEARING_EDGE_REGISTER 0
 #define B_3_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define B_3_CAPTURE 0
-#define B_3_DATA_WIDTH 4
+#define B_3_DATA_WIDTH 8
 #define B_3_DO_TEST_BENCH_WIRING 0
 #define B_3_DRIVEN_SIM_VALUE 0
 #define B_3_EDGE_TYPE NONE
@@ -243,7 +243,7 @@
 #define B_3_HAS_OUT 1
 #define B_3_HAS_TRI 0
 #define B_3_IRQ_TYPE NONE
-#define B_3_RESET_VALUE 4
+#define B_3_RESET_VALUE 255
 
 /*
  * Macros for device 'out_0', class 'altera_avalon_pio'
@@ -258,7 +258,7 @@
 #define OUT_0_BIT_CLEARING_EDGE_REGISTER 0
 #define OUT_0_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define OUT_0_CAPTURE 0
-#define OUT_0_DATA_WIDTH 9
+#define OUT_0_DATA_WIDTH 19
 #define OUT_0_DO_TEST_BENCH_WIRING 0
 #define OUT_0_DRIVEN_SIM_VALUE 0
 #define OUT_0_EDGE_TYPE NONE
@@ -268,6 +268,198 @@
 #define OUT_0_HAS_TRI 0
 #define OUT_0_IRQ_TYPE NONE
 #define OUT_0_RESET_VALUE 0
+
+/*
+ * Macros for device 'a_4', class 'altera_avalon_pio'
+ * The macros are prefixed with 'A_4_'.
+ * The prefix is the slave descriptor.
+ */
+#define A_4_COMPONENT_TYPE altera_avalon_pio
+#define A_4_COMPONENT_NAME a_4
+#define A_4_BASE 0x90
+#define A_4_SPAN 16
+#define A_4_END 0x9f
+#define A_4_BIT_CLEARING_EDGE_REGISTER 0
+#define A_4_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define A_4_CAPTURE 0
+#define A_4_DATA_WIDTH 8
+#define A_4_DO_TEST_BENCH_WIRING 0
+#define A_4_DRIVEN_SIM_VALUE 0
+#define A_4_EDGE_TYPE NONE
+#define A_4_FREQ 50000000
+#define A_4_HAS_IN 0
+#define A_4_HAS_OUT 1
+#define A_4_HAS_TRI 0
+#define A_4_IRQ_TYPE NONE
+#define A_4_RESET_VALUE 255
+
+/*
+ * Macros for device 'a_5', class 'altera_avalon_pio'
+ * The macros are prefixed with 'A_5_'.
+ * The prefix is the slave descriptor.
+ */
+#define A_5_COMPONENT_TYPE altera_avalon_pio
+#define A_5_COMPONENT_NAME a_5
+#define A_5_BASE 0xa0
+#define A_5_SPAN 16
+#define A_5_END 0xaf
+#define A_5_BIT_CLEARING_EDGE_REGISTER 0
+#define A_5_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define A_5_CAPTURE 0
+#define A_5_DATA_WIDTH 8
+#define A_5_DO_TEST_BENCH_WIRING 0
+#define A_5_DRIVEN_SIM_VALUE 0
+#define A_5_EDGE_TYPE NONE
+#define A_5_FREQ 50000000
+#define A_5_HAS_IN 0
+#define A_5_HAS_OUT 1
+#define A_5_HAS_TRI 0
+#define A_5_IRQ_TYPE NONE
+#define A_5_RESET_VALUE 255
+
+/*
+ * Macros for device 'a_6', class 'altera_avalon_pio'
+ * The macros are prefixed with 'A_6_'.
+ * The prefix is the slave descriptor.
+ */
+#define A_6_COMPONENT_TYPE altera_avalon_pio
+#define A_6_COMPONENT_NAME a_6
+#define A_6_BASE 0xb0
+#define A_6_SPAN 16
+#define A_6_END 0xbf
+#define A_6_BIT_CLEARING_EDGE_REGISTER 0
+#define A_6_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define A_6_CAPTURE 0
+#define A_6_DATA_WIDTH 8
+#define A_6_DO_TEST_BENCH_WIRING 0
+#define A_6_DRIVEN_SIM_VALUE 0
+#define A_6_EDGE_TYPE NONE
+#define A_6_FREQ 50000000
+#define A_6_HAS_IN 0
+#define A_6_HAS_OUT 1
+#define A_6_HAS_TRI 0
+#define A_6_IRQ_TYPE NONE
+#define A_6_RESET_VALUE 255
+
+/*
+ * Macros for device 'a_7', class 'altera_avalon_pio'
+ * The macros are prefixed with 'A_7_'.
+ * The prefix is the slave descriptor.
+ */
+#define A_7_COMPONENT_TYPE altera_avalon_pio
+#define A_7_COMPONENT_NAME a_7
+#define A_7_BASE 0xc0
+#define A_7_SPAN 16
+#define A_7_END 0xcf
+#define A_7_BIT_CLEARING_EDGE_REGISTER 0
+#define A_7_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define A_7_CAPTURE 0
+#define A_7_DATA_WIDTH 8
+#define A_7_DO_TEST_BENCH_WIRING 0
+#define A_7_DRIVEN_SIM_VALUE 0
+#define A_7_EDGE_TYPE NONE
+#define A_7_FREQ 50000000
+#define A_7_HAS_IN 0
+#define A_7_HAS_OUT 1
+#define A_7_HAS_TRI 0
+#define A_7_IRQ_TYPE NONE
+#define A_7_RESET_VALUE 255
+
+/*
+ * Macros for device 'b_4', class 'altera_avalon_pio'
+ * The macros are prefixed with 'B_4_'.
+ * The prefix is the slave descriptor.
+ */
+#define B_4_COMPONENT_TYPE altera_avalon_pio
+#define B_4_COMPONENT_NAME b_4
+#define B_4_BASE 0xd0
+#define B_4_SPAN 16
+#define B_4_END 0xdf
+#define B_4_BIT_CLEARING_EDGE_REGISTER 0
+#define B_4_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define B_4_CAPTURE 0
+#define B_4_DATA_WIDTH 8
+#define B_4_DO_TEST_BENCH_WIRING 0
+#define B_4_DRIVEN_SIM_VALUE 0
+#define B_4_EDGE_TYPE NONE
+#define B_4_FREQ 50000000
+#define B_4_HAS_IN 0
+#define B_4_HAS_OUT 1
+#define B_4_HAS_TRI 0
+#define B_4_IRQ_TYPE NONE
+#define B_4_RESET_VALUE 255
+
+/*
+ * Macros for device 'b_5', class 'altera_avalon_pio'
+ * The macros are prefixed with 'B_5_'.
+ * The prefix is the slave descriptor.
+ */
+#define B_5_COMPONENT_TYPE altera_avalon_pio
+#define B_5_COMPONENT_NAME b_5
+#define B_5_BASE 0xe0
+#define B_5_SPAN 16
+#define B_5_END 0xef
+#define B_5_BIT_CLEARING_EDGE_REGISTER 0
+#define B_5_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define B_5_CAPTURE 0
+#define B_5_DATA_WIDTH 8
+#define B_5_DO_TEST_BENCH_WIRING 0
+#define B_5_DRIVEN_SIM_VALUE 0
+#define B_5_EDGE_TYPE NONE
+#define B_5_FREQ 50000000
+#define B_5_HAS_IN 0
+#define B_5_HAS_OUT 1
+#define B_5_HAS_TRI 0
+#define B_5_IRQ_TYPE NONE
+#define B_5_RESET_VALUE 255
+
+/*
+ * Macros for device 'b_6', class 'altera_avalon_pio'
+ * The macros are prefixed with 'B_6_'.
+ * The prefix is the slave descriptor.
+ */
+#define B_6_COMPONENT_TYPE altera_avalon_pio
+#define B_6_COMPONENT_NAME b_6
+#define B_6_BASE 0xf0
+#define B_6_SPAN 16
+#define B_6_END 0xff
+#define B_6_BIT_CLEARING_EDGE_REGISTER 0
+#define B_6_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define B_6_CAPTURE 0
+#define B_6_DATA_WIDTH 8
+#define B_6_DO_TEST_BENCH_WIRING 0
+#define B_6_DRIVEN_SIM_VALUE 0
+#define B_6_EDGE_TYPE NONE
+#define B_6_FREQ 50000000
+#define B_6_HAS_IN 0
+#define B_6_HAS_OUT 1
+#define B_6_HAS_TRI 0
+#define B_6_IRQ_TYPE NONE
+#define B_6_RESET_VALUE 255
+
+/*
+ * Macros for device 'b_7', class 'altera_avalon_pio'
+ * The macros are prefixed with 'B_7_'.
+ * The prefix is the slave descriptor.
+ */
+#define B_7_COMPONENT_TYPE altera_avalon_pio
+#define B_7_COMPONENT_NAME b_7
+#define B_7_BASE 0x100
+#define B_7_SPAN 16
+#define B_7_END 0x10f
+#define B_7_BIT_CLEARING_EDGE_REGISTER 0
+#define B_7_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define B_7_CAPTURE 0
+#define B_7_DATA_WIDTH 8
+#define B_7_DO_TEST_BENCH_WIRING 0
+#define B_7_DRIVEN_SIM_VALUE 0
+#define B_7_EDGE_TYPE NONE
+#define B_7_FREQ 50000000
+#define B_7_HAS_IN 0
+#define B_7_HAS_OUT 1
+#define B_7_HAS_TRI 0
+#define B_7_IRQ_TYPE NONE
+#define B_7_RESET_VALUE 255
 
 /*
  * Macros for device 'sysid_qsys', class 'altera_avalon_sysid_qsys'
@@ -280,7 +472,7 @@
 #define SYSID_QSYS_SPAN 8
 #define SYSID_QSYS_END 0x10007
 #define SYSID_QSYS_ID 2899645186
-#define SYSID_QSYS_TIMESTAMP 1501569181
+#define SYSID_QSYS_TIMESTAMP 1501665651
 
 /*
  * Macros for device 'jtag_uart', class 'altera_avalon_jtag_uart'
