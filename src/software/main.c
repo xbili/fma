@@ -15,6 +15,83 @@
 #define HW_REGS_MASK (HW_REGS_SPAN - 1)
 
 
+// Implicit function declarations
+void grid_test_8x8(int dimension, int min_value, int max_value, int8_t a[8], int8_t b[8]);
+int32_t fma_8x8(int8_t a[8], int8_t b[8]);
+int32_t cpu_fma_8x8(int8_t a[8], int8_t b[8]);
+void log_inputs(int8_t a[8], int8_t b[8]);
+
+
+int main() {
+	// Loops counters
+	int i;
+
+	// Temp buffer to store value
+	int value;
+
+	// Read user inputs
+	int8_t a[8], b[8];
+	int count = 8;
+
+	printf("\nEnter elements of vector A:\n");
+	for (i = 0; i < count; ++i) {
+		printf("%2d> ", i+1);
+		scanf("%d", &value);
+		a[i] = value;
+	}
+
+	printf("\nEnter elements of vector B:\n");
+	for (i = 0; i < count; ++i) {
+		printf("%2d> ", i+1);
+		scanf("%d", &value);
+		b[i] = value;
+	}
+
+	int32_t result = fma_8x8(a, b);
+	int32_t expected = cpu_fma_8x8(a, b);
+
+	log_inputs(a, b);
+
+	printf("Expected: %d\n", expected);
+	printf("Actual: %d\n", result);
+
+	assert(expected == result);
+
+	return 0;
+}
+
+
+void grid_test_8x8(int dimension, int min_value, int max_value, int8_t a[8], int8_t b[8]) {
+	if (dimension == 0) {
+		int32_t result;
+		int expected;
+
+		result = fma_8x8(a, b);
+		expected = cpu_fma_8x8(a, b);
+
+		// Log each iteration
+		log_inputs(a, b);
+		printf("Result: %d\n", result);
+		printf("Expected: %d\n", expected);
+
+		// Stops running if fails
+		assert(result == expected);
+
+		return;
+	}
+
+	int i;
+	for (i = min_value; i < max_value; ++i) {
+		if (dimension > 8) {
+			b[dimension - 1] = i;
+		} else {
+			a[dimension - 1] = i;
+		}
+		grid_test_8x8(dimension - 1, min_value, max_value, a, b);
+	}
+}
+
+
 int32_t fma_8x8(int8_t a[8], int8_t b[8]) {
 	void *virtual_base;
 	int fd;
@@ -92,33 +169,8 @@ int32_t cpu_fma_8x8(int8_t a[8], int8_t b[8]) {
 }
 
 
-int main() {
-	// Loops counters
+void log_inputs(int8_t a[8], int8_t b[8]) {
 	int i;
-
-	// Temp buffer to store value
-	int value;
-
-	// Read user inputs
-	int8_t a[8], b[8];
-	int count = 8;
-
-	printf("\nEnter elements of vector A:\n");
-	for (i = 0; i < count; ++i) {
-		printf("%2d> ", i+1);
-		scanf("%d", &value);
-		a[i] = value;
-	}
-
-	printf("\nEnter elements of vector B:\n");
-	for (i = 0; i < count; ++i) {
-		printf("%2d> ", i+1);
-		scanf("%d", &value);
-		b[i] = value;
-	}
-
-	int32_t result = fma_8x8(a, b);
-	int32_t expected = cpu_fma_8x8(a, b);
 
 	// Print inputs
 	printf("Calculating:\n");
@@ -129,10 +181,4 @@ int main() {
 		}
 	}
 	printf("\n");
-	printf("Expected: %d\n", expected);
-	printf("Actual: %d\n", result);
-
-	assert(expected == result);
-
-	return 0;
 }
