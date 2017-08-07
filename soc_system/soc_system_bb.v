@@ -189,6 +189,6 @@ module soc_system (
 	output		memory_mem_odt;
 	output	[3:0]	memory_mem_dm;
 	input		memory_oct_rzqin;
-	input	[18:0]	out_0_external_connection_export;
+	input	[31:0]	out_0_external_connection_export;
 	input		reset_reset_n;
 endmodule

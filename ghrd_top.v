@@ -181,37 +181,49 @@ wire [27:0] stm_hw_events;
 // Connection of internal logics
 assign stm_hw_events    = {{3{1'b0}},SW, fpga_led_internal, fpga_debounced_buttons};
 
-// Fused-Multiply-Add (FMA) wires
+
+// 8x8 Fused-Multiply-Add (FMA) unit
 wire[7:0] a0, a1, a2, a3, a4, a5, a6, a7;
 wire[7:0] b0, b1, b2, b3, b4, b5, b6, b7;
 wire[31:0] out0;
+wire[18:0] fma_out;
 
-// 8x8 Fused-Multiply-Add (FMA) unit
-fma_8x8 fma(
-	out0,
-	a0, a1, a2, a3, a4, a5, a6, a7,
-	b0, b1, b2, b3, b4, b5, b6, b7
+fma_8x8 fma0(
+	fma_out,
+	a0, b0,
+	a1, b1,
+	a2, b2,
+	a3, b3,
+	a4, b4,
+	a5, b5,
+	a6, b6,
+	a7, b7
 );
+
+// Sign extension
+assign out0[18:0] = fma_out;
+assign out0[31:19] = {13{out0[18]}};
+
 
 soc_system u0 (
 	// Custom declared ports
 	.a_0_external_connection_export        (a0),        //   a_0_external_connection.export
-	.a_3_external_connection_export        (a1),        //   a_3_external_connection.export
-	.a_1_external_connection_export        (a2),        //   a_1_external_connection.export
-	.a_2_external_connection_export        (a3),        //   a_2_external_connection.export
-	.b_0_external_connection_export        (b0),        //   b_0_external_connection.export
-	.b_2_external_connection_export        (b1),        //   b_2_external_connection.export
-	.b_1_external_connection_export        (b2),        //   b_1_external_connection.export
-	.b_3_external_connection_export        (b3),        //   b_3_external_connection.export
+	.a_1_external_connection_export        (a1),        //   a_1_external_connection.export
+	.a_2_external_connection_export        (a2),        //   a_2_external_connection.export
+	.a_3_external_connection_export        (a3),        //   a_3_external_connection.export
 	.a_4_external_connection_export        (a4),        //   a_4_external_connection.export
 	.a_5_external_connection_export        (a5),        //   a_5_external_connection.export
 	.a_6_external_connection_export        (a6),        //   a_6_external_connection.export
 	.a_7_external_connection_export        (a7),        //   a_7_external_connection.export
+	.b_0_external_connection_export        (b0),        //   b_0_external_connection.export
+	.b_1_external_connection_export        (b1),        //   b_1_external_connection.export
+	.b_2_external_connection_export        (b2),        //   b_2_external_connection.export
+	.b_3_external_connection_export        (b3),        //   b_3_external_connection.export
 	.b_4_external_connection_export        (b4),        //   b_4_external_connection.export
 	.b_5_external_connection_export        (b5),        //   b_5_external_connection.export
 	.b_6_external_connection_export        (b6),        //   b_6_external_connection.export
 	.b_7_external_connection_export        (b7),        //   b_7_external_connection.export
-	.out_0_external_connection_export      (out0),      // out_0_external_connection.export
+	.out_0_external_connection_export      (out0),      //   out_0_external_connection.export
 
 	// GHRD declared ports
 	.memory_mem_a                          ( HPS_DDR3_ADDR),                          //          memory.mem_a

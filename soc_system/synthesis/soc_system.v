@@ -97,7 +97,7 @@ module soc_system (
 		output wire        memory_mem_odt,                        //                          .mem_odt
 		output wire [3:0]  memory_mem_dm,                         //                          .mem_dm
 		input  wire        memory_oct_rzqin,                      //                          .oct_rzqin
-		input  wire [18:0] out_0_external_connection_export,      // out_0_external_connection.export
+		input  wire [31:0] out_0_external_connection_export,      // out_0_external_connection.export
 		input  wire        reset_reset_n                          //                     reset.reset_n
 	);
 

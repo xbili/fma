@@ -941,9 +941,10 @@ set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE src/hardware/pprt_16x16.v
+set_global_assignment -name VERILOG_FILE src/hardware/multiplier_8.v
 set_global_assignment -name VERILOG_FILE src/hardware/fma_8x8.v
 set_global_assignment -name VERILOG_FILE src/hardware/fma_4x4.v
-set_global_assignment -name VERILOG_FILE src/hardware/multiplier_8x8.v
 set_global_assignment -name VERILOG_FILE src/hardware/half_adder.v
 set_global_assignment -name VERILOG_FILE src/hardware/full_adder.v
 set_global_assignment -name QIP_FILE ip/altsource_probe/hps_reset.qip

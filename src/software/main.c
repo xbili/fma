@@ -16,6 +16,7 @@
 
 
 // Implicit function declarations
+void manual_test_8x8();
 void grid_test_8x8(int dimension, int min_value, int max_value, int8_t a[8], int8_t b[8]);
 int32_t fma_8x8(int8_t a[8], int8_t b[8]);
 int32_t cpu_fma_8x8(int8_t a[8], int8_t b[8]);
@@ -23,6 +24,16 @@ void log_inputs(int8_t a[8], int8_t b[8]);
 
 
 int main() {
+	int8_t a[] = { -128, -128, -128, -128, -128, -128, -128, -128 };
+	int8_t b[] = { 1, -1, 1, -1, 1, -1, 1, 1 };
+
+	grid_test_8x8(8, -128, 127, a, b);
+
+    return 0;
+}
+
+
+void manual_test_8x8() {
 	// Loops counters
 	int i;
 
@@ -56,8 +67,6 @@ int main() {
 	printf("Actual: %d\n", result);
 
 	assert(expected == result);
-
-	return 0;
 }
 
 
@@ -69,13 +78,12 @@ void grid_test_8x8(int dimension, int min_value, int max_value, int8_t a[8], int
 		result = fma_8x8(a, b);
 		expected = cpu_fma_8x8(a, b);
 
-		// Log each iteration
-		log_inputs(a, b);
-		printf("Result: %d\n", result);
-		printf("Expected: %d\n", expected);
-
-		// Stops running if fails
-		assert(result == expected);
+		// Logs if fails
+		if (result != expected) {
+			log_inputs(a, b);
+			printf("Result: %d\n", result);
+			printf("Expected: %d\n", expected);
+		}
 
 		return;
 	}
@@ -83,9 +91,9 @@ void grid_test_8x8(int dimension, int min_value, int max_value, int8_t a[8], int
 	int i;
 	for (i = min_value; i < max_value; ++i) {
 		if (dimension > 8) {
-			b[dimension - 1] = i;
+			b[dimension - 1] = (int8_t) i;
 		} else {
-			a[dimension - 1] = i;
+			a[dimension - 1] = (int8_t) i;
 		}
 		grid_test_8x8(dimension - 1, min_value, max_value, a, b);
 	}
